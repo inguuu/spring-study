@@ -3,6 +3,7 @@ package com.example.study3.service.impl;
 import com.example.study3.model.Board;
 import com.example.study3.model.DefaultRes;
 import com.example.study3.service.BoardService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 public class BoardServiceImpl implements BoardService {
 
@@ -26,7 +28,19 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public DefaultRes<Board> findIdx(int boardIdx) {
-        return null;
+        log.info("idx: "+boardIdx);
+        int i =0;
+        for(i=0;i<boardList.size();i++) {
+            if (boardList.get(i).getIdx() == boardIdx) {
+                break;
+            }
+        }
+        if(i<boardList.size()){
+            return DefaultRes.res(HttpStatus.OK.value(), "조회성공", boardList.get(i));
+        }else{
+            return DefaultRes.res(HttpStatus.OK.value(), "인덱스와 맞는 유저가 없습니다.");
+        }
+
     }
 
     @Override
