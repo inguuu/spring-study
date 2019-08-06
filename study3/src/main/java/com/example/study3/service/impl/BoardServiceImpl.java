@@ -22,7 +22,7 @@ public class BoardServiceImpl implements BoardService {
         if(boardList.isEmpty()){
             return  DefaultRes.res(HttpStatus.NO_CONTENT.value(),"유저 정보가 없습니다.");
         }else{
-            return DefaultRes.res(HttpStatus.OK.value(), "조회성공", boardList);
+            return DefaultRes.res(HttpStatus.OK.value(), "조회 성공", boardList);
         }
     }
 
@@ -36,7 +36,7 @@ public class BoardServiceImpl implements BoardService {
             }
         }
         if(i<boardList.size()){
-            return DefaultRes.res(HttpStatus.OK.value(), "조회성공", boardList.get(i));
+            return DefaultRes.res(HttpStatus.OK.value(), "조회 성공", boardList.get(i));
         }else{
             return DefaultRes.res(HttpStatus.OK.value(), "인덱스와 맞는 유저가 없습니다.");
         }
@@ -45,6 +45,9 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public DefaultRes insert(Board board) {
-        return null;
+        Board newBoard = new Board(board.getIdx(),board.getTitle(),board.getContent());
+        boardList.add(newBoard);
+        
+        return DefaultRes.res(HttpStatus.OK.value(), "등록 성공");
     }
 }
