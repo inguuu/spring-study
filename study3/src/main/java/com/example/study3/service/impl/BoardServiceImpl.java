@@ -18,9 +18,9 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public DefaultRes<List<Board>> findAll() {
         if(boardList.isEmpty()){
-            return new DefaultRes<>(HttpStatus.NO_CONTENT,"유저 정보가 없습니다.");
+            return  DefaultRes.res(HttpStatus.NO_CONTENT.value(),"유저 정보가 없습니다.");
         }else{
-            return new DefaultRes<List<Board>>(HttpStatus.OK.value(), "조회성공", boardList);
+            return DefaultRes.res(HttpStatus.OK.value(), "조회성공", boardList);
         }
     }
 

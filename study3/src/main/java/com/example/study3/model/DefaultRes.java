@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 
+import java.util.List;
+
 @Getter
 @Builder
 @NoArgsConstructor
@@ -35,4 +37,6 @@ public class DefaultRes<T> {
                 .responseMessage(responseMessage)
                 .build();
     }
+
+
 }
