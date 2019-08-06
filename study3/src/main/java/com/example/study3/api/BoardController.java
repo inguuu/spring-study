@@ -31,7 +31,7 @@ public class BoardController {
     @GetMapping("/board/{boardIdx}")
     public ResponseEntity findIdxBoard(@PathVariable int boardIdx) {
         try {
-            return new ResponseEntity<>(boardService.findAll(), HttpStatus.OK);
+            return new ResponseEntity<>(boardService.findIdx(boardIdx), HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
             DefaultRes<Board> ISR = new DefaultRes<>(HttpStatus.INTERNAL_SERVER_ERROR,"서버 내부 오류" );
@@ -39,9 +39,9 @@ public class BoardController {
         }
     }
     @PostMapping("/board")
-    public ResponseEntity findAllBoards(@RequestBody ) {
+    public ResponseEntity findAllBoards(@RequestBody Board board) {
         try {
-            return new ResponseEntity<>(boardService.findAll(), HttpStatus.OK);
+            return new ResponseEntity<>(boardService.insert(board), HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
             DefaultRes<Board> ISR = new DefaultRes<>(HttpStatus.INTERNAL_SERVER_ERROR,"서버 내부 오류" );
