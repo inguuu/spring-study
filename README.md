@@ -19,7 +19,7 @@
 - model(constructor, getter, setter), api(controller)를 유저정보 구현 
 
 
-
+***
 **[2차 스터디]**
 
 # 목적
@@ -38,7 +38,7 @@
 - AWS EC2 배포
 
 
-
+***
 **[3차 스터디]**
 
 # 목적
