@@ -18,6 +18,8 @@
 - 스프링부트 프로젝트 생성
 - model(constructor, getter, setter), api(controller)를 유저정보 구현 
 
+
+
 **[2차 스터디]**
 
 # 목적
@@ -34,6 +36,8 @@
 - GET/POST/DELETE/PUT 실습 
 - POSTMAN을 이용해서 response, requset 실습
 - AWS EC2 배포
+
+
 
 **[3차 스터디]**
 
